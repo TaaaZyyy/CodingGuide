@@ -3,9 +3,11 @@
 ## Guides
 
 - [Apex](apex.md)
+<!--
 - [Visualforce](visualforce.md)
 - [JavaScript](javascript.md)
-- [命名規則](namingstandard.md)
+- [Salesforceデータベース](salesforcedatabase.md)
+-->
 
 ## Keywords
 
