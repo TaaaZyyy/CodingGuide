@@ -1,6 +1,6 @@
 # CodingGuide
 
-## Guides
+## 個人開発用
 
 - [Apex](apex.md)
 <!--
@@ -8,6 +8,10 @@
 - [JavaScript](javascript.md)
 - [Salesforceデータベース](salesforcedatabase.md)
 -->
+
+## ソースコードレビュー対策
+（スタイル、ロジック、命名規則でファイルを分ける）
+- [Apex](apexrca.md)
 
 ## Keywords
 
