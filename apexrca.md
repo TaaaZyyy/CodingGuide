@@ -183,4 +183,6 @@ getCustomerID
 ```
 fooBar.fChar = barFoo.lchar = 'c'; // AVOID!
 ```
+### メソッド定義
+- オーバーライドは避ける。どうしても必要な場合はコメントに目的・意図を書く。
 -->
