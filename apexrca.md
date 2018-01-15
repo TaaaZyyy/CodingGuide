@@ -48,16 +48,33 @@
 - **[MUST]** 二項演算子とオペランドの間に空白を置く。
 - **[MUST]** 単項演算子とオペランドの間に空白を置かない。
 - **[MUST]** キャスト演算子の直後に空白を置く。
-- **[MUST]** **丸括弧の内側1文字目に空白を置く。**
+- **[MUST]** **丸括弧の内側1文字目に空白を置く。ただし、丸括弧の中がからの場合は空白を置かない。**
 - **[MUST]** クラス、メソッド、コンストラクタの宣言で使用する中括弧の前に空白を置く。
 - **[MUST]** コレクションの宣言で使用する中括弧の直前に空白を置かない。
 - **[MUST]** if、while、forなどのキーワードと後続の丸括弧の間に空白を置く。
 - **[MUST]** メソッド名と後続の丸括弧の間に空白を置かない。
+### 縦列
+- **[MUST]** **前後の行に同じ演算子が使用されている場合、空白を使って縦を揃える。**
+- **[MUST]** **前後の行で同じ変数を使用している場合、空白を使って縦を揃える。**
+- **[MUST]** **開始カッコは揃えない。閉じカッコは縦列で揃える。**
+- **[MUST]** **カンマ、セミコロンで揃える。**
+```
+this.shouldUpdateJinzaiDev3   = JINKAI_DEV_3_TARGET_ORGANIZATIONRANK_SET.contains(org.OrganizationRank__c);
+this.shouldUpdateKouka        = KOUKA_TARGET_ORGANIZATION_SET.contains(           org.OrganizationRank__c);
+this.shouldUpdateMg           = MG_TARGET_ORGANIZATION_SET.contains(              org.OrganizationRank__c);
+```
+```
+static final List<String> KYUTAI_FIELD_KEY_LIST       = new List<String>{'KYUTAI_1'      , 'KYUTAI_2'      , 'KYUTAI_3'      };
+static final List<String> JIKOSHINKOKU_FIELD_KEY_LIST = new List<String>{'JIKOSHINKOKU_1', 'JIKOSHINKOKU_2', 'JIKOSHINKOKU_3'};
+static final List<String> JINKAI1_FIELD_KEY_LIST      = new List<String>{'JINKAI1_1'     , 'JINKAI1_2'     , 'JINKAI1_3'     };
+static final List<String> JINKAI2_FIELD_KEY_LIST      = new List<String>{'JINKAI2_1'     , 'JINKAI2_2'     , 'JINKAI2_3'     };
+static final List<String> JINKAI3_FIELD_KEY_LIST      = new List<String>{'JINKAI3_1'     , 'JINKAI3_2'     , 'JINKAI3_3'     };
+```
 ### 括弧
 - **[MUST]** 中括弧、カギカッコで行を始めない。
 - [SHOULD] 演算子を複数含む式は優先順位を明確にするため、丸括弧を使用する。
 ```
-if ( a == b && c == d )     // AVOID!
+if ( a == b && c == d )         // AVOID!
 if ( ( a == b ) && ( c == d ) ) // RIGHT
 ```
 - **[MUST]** 三項演算子の条件句は丸括弧で囲む
@@ -73,15 +90,45 @@ if ( ( a == b ) && ( c == d ) ) // RIGHT
 - [SHOULD] カンマの前で改行しない
 - [SHOULD] **演算子の前後で改行しない**
 - [SHOULD] 改行のあとの文は1レベル深くインデントする。
+
 ## ステートメント
+- **[MUST]** ステートメントの予約語と丸括弧の間は1つ空白を置く。1つ以上置かない。
 ### 条件文
-- **[MUST]** 1文のみの条件文は中括弧を使用しない。
+- **[MUST]** 条件文のブロックの中が1行の場合、条件文に続けて1行で記述する。中括弧を省略しない。中括弧の内側には空白を1つ置く。
+- **[MUST]** 丸括弧と中括弧の間に空白を1つ置く。
+```
+if ( jugyouin.NextMonthEnterdCompanyRoot__c != null ) { jugyouin.NyushaKeiro__c =  jugyouin.NextMonthEnterdCompanyRoot__c; }  // [C37] 翌月入社経路
+```
+```
+if (      shokusei  ==  'EXP' ) {  employeementPattern  =  '半年契約'; }
+else if ( shokusei  ==  'CV'  ) {  employeementPattern  =  'CV';      }
+```
 - **[MUST]** 複数行にまたがる条件文の中括弧は省略しない。
 ### 繰り返し文
 - [SHOULD] do-while文は避け、for文を使用する。
 - **[MUST]** for文のセミコロンのあとに空白を入れる。
 ### try-catch文
 
+## SOQL
+- **[MUST]** インラインSOQLを書く場合は、SELECTの前で改行し、インデントを **TODO** 個置く。
+- **[MUST]** インラインSOQLの予約後は縦を揃え、予約後以外の句はインデントする。
+- **[MUST]** インラインSOQLの閉じカギカッコは予約後と同じインデントに揃える。
+- **[MUST]** インラインSOQLのSELECTする項目の記述は、1行につき1語までとする。
+- **[MUST]** インラインSOQLのカンマは縦列を揃える。
+
+```
+for ( WCMSheet2__c wcmSheet : [
+								SELECT
+									Id        ,   // SalesforceId
+									Name      ,   // 時期 - 氏名 - バージョン
+									Account__c,   // 従業員
+									Will_s2__c    // ２～３年後Will本人
+								FROM
+									WCMSheet2__c
+								WHERE
+									UpsertKey__c IN : wcmSheetUpsertKeySet
+								] ) {
+```
 ## コメント
 ### 実装コメント
 特定の実装に関するコメント。
@@ -115,7 +162,8 @@ getCustomerID
 - **[MUST]** 動詞(句)を使用。
 ### 変数名
 - **[MUST]** ローワーキャメルケース
-- [SHOULD] スコープに合わせた適切な長さの名前を使用する。
+- **[MUST]** イテレータ( i, j, k )、例外( e )以外に一文字の変数名を使用しない。
+- **[MUST]** 一時的な変数であっても説明的な変数名を使用する。
 ### 定数名
 - **[MUST]** 大文字のスネークケース
 
