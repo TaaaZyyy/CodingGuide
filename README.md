@@ -12,7 +12,7 @@
 ## コードレビュー対策
 （スタイル、ロジック、命名規則でファイルを分ける）
 - [Apex_Style_Guide](apex_style.md)
-- [Apex_Logic_Guide](apex_logic.md)
+- [Apex_Practice_Guide](apex_practice.md)
 - [Apex_Naming_Guide](apex_naming.md)
 - [Visualforce_Style_Guide](visualforce.md)
 - [Javascript_Style_Guide](Javascript.md)
