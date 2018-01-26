@@ -3,6 +3,7 @@
 ## 個人開発用
 
 - [Apex](apex.md)
+- [Aura_Template](aura_template.md)
 <!--
 - [Visualforce](visualforce.md)
 - [JavaScript](javascript.md)
