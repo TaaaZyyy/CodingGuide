@@ -4,6 +4,19 @@
 動的なWebアプリケーションを開発するためのUIフレームワーク。
 サーバー側ではApex、クライアント側ではJavascriptで動く。
 カプセル化されたコンポーネントを組み合わせる（コンポジション）ことで迅速な開発を可能にする。
+### 学習の際の注意点
+Lightning コンポーネントフレームワークは Visualforce よりも大規模であり、洗練され、複雑です。
+それほど機能的でない Lightning コンポーネントアプリケーションを記述する場合でさえ、JavaScript に精通している必要があります。
+他言語と比較してjavascriptは学習する必要がある十分な違いが存在します。たとえば、オブジェクトと継承、範囲ルール、真と偽を分ける予測不能な動作などです。
+### 開発ツール
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+- [Salesforce Lightning Inspector](https://developer.salesforce.com/docs/atlas.ja-jp.210.0.lightning.meta/lightning/inspector_intro.htm)
+### デバッグ
+- コードのどの行で失敗しているのかをすばやく見つけるには、コードを実行する前に [Pause on all exceptions (すべての例外で一時停止)] オプションを有効にします。
+- Lightning コンポーネントのデバッグモードの有効化（設定>Lightningコンポーネント>デバッグモードを有効化）
+- Salesforce Lightning Inspector Chrome 拡張機能
+- console.log()
+
 ### 利用の前提
 - カスタムSalesforceドメイン名を定義していること
 ### CLASSICでどこでつかえる？？？？バンドルできる場所
@@ -18,11 +31,17 @@ HTML、CSS、javascript
 ### イベント
 インターフェースイベント発生時に対応するハンドラを作成する。
 
+### Lightning 基本コンポーネント
+
 ### Field Service Lightning 
 ### Lightning Design System
 cssフレームワーク。Salesforceの提供サービスが利用しているデザインを利用できる。商用可。
-- https://www.lightningdesignsystem.com/ から使用したいコンポネントを見つける
-- 使用箇所にコメントでLDSを使用する旨を記載する（保守開発を用意にするため）
+積極的に使う。独自のCSSスタイルは最終手段的に限定された特別なケースでのみ使用。
+#### 注意点
+SLDS コンポーネントは Lightning コンポーネントではありません。Lightning 組み込みコンポーネントの中で必要なものが見つからない場合、自分でコンポーネントを作成するための開始点として SLDS サイトを使用します。（SLDS は、Salesforce が目指している未来の世界を表します。）
+#### 使用方法1
+1. https://www.lightningdesignsystem.com/ から使用したいコンポネントを見つける
+2. 使用箇所にコメントでLDSを使用する旨を記載する（保守開発を用意にするため）
 
 ```
 <!--
@@ -31,9 +50,9 @@ cssフレームワーク。Salesforceの提供サービスが利用している�
 -->
 ```
 
-- コードをコピペする
-- 目的に合わせてクラスを変更する
-- 目的に合わせてコードを修正する
+3. コードをコピペする
+4. 目的に合わせてクラスを変更する
+5. 目的に合わせてコードを修正する
 
 ## 設計手順
 アプリケーションをコンポーネントに分解する。
