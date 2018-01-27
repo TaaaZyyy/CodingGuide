@@ -4,6 +4,8 @@
 
 - [Apex](apex.md)
 - [Aura_Template](aura_template.md)
+- [HTML](html_style.md)
+- [CSS](css_style.md)
 <!--
 - [Visualforce](visualforce.md)
 - [JavaScript](javascript.md)
