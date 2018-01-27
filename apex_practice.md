@@ -1,4 +1,4 @@
-# Apex Naming Guide
+# Apex Practice Guide
 # 目次
 
 # Apex スタイルガイド
