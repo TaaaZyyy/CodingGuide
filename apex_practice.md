@@ -42,13 +42,13 @@ private 自クラス名() {}
 ```
 String queryName = '%' + name + '%';
 List<Contact> contacts = [
-						SELECT
-							Id
-						FROM
-							Contact
-						WHERE
-							Name LIKE :queryName
-						];
+                        SELECT
+                            Id
+                        FROM
+                            Contact
+                        WHERE
+                            Name LIKE :queryName
+                        ];
 ```
 
 #### 動的クエリ
