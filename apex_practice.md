@@ -1,7 +1,7 @@
 # Apex Practice Guide
 # 目次
 
-# Apex スタイルガイド
+# Apex プラクティスガイド
 
 ## はじめに
 Apex のベストプラクティス

@@ -1,4 +1,4 @@
-# Apex(team)
+# Apex Style Guide
 # 目次
 
 - ファイルの構成
