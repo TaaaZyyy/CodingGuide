@@ -21,7 +21,7 @@ private static 自クラス名 singleton = new 自クラス名();
 private 自クラス名() {}
 
 public static 自クラス名() {
-	return singleton;
+    return singleton;
 }
 ```
 
