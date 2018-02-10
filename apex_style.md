@@ -5,11 +5,11 @@
     - 文量
     - 改行コード
     - 文字コード
-    - インデント
     - 空行
     - 空白
     - 縦列
     - 括弧
+    - インデント
     - 行
     - 改行・折り返し
 - ステートメント
@@ -20,7 +20,6 @@
     - 実装コメント
     - ドキュメントコメント
 
-
 # Apex スタイルガイド
 
 ## はじめに
@@ -30,15 +29,10 @@
 基本的にはパフォーマンスを多少犠牲にしても、見やすさを重視する。
 
 ## ファイルの構成
-ファイルは、空白業で区切られるセクションと、各セクションを識別する
-オプションのコメントで構成される。
 ### 改行コード
 - **[MUST]** CRLF
 ### 文字コード
 - **[MUST]** UTF-8
-### インデント
-- **[MUST]** インデントはタブ文字を使用する。
-- **[MUST]** ブロック内の文は1レベルインデントする。
 ### 空行
 論理的に関連するコードをセクションに分け、可読性を高める目的で適宜使用する。
 - **[MUST]** ファイルの末尾に空行を置かない。
@@ -85,9 +79,9 @@ method(str)   // ng
 - **[MUST]** カンマ、セミコロンで揃える。
 
 ```
-this.shouldUpdateJinzaiDev3   = JINKAI_DEV_3_TARGET_ORGANIZATIONRANK_SET.contains(org.OrganizationRank__c);
-this.shouldUpdateKouka        = KOUKA_TARGET_ORGANIZATION_SET.contains(           org.OrganizationRank__c);
-this.shouldUpdateMg           = MG_TARGET_ORGANIZATION_SET.contains(              org.OrganizationRank__c);
+this.shouldUpdateJinzaiDev3 = JINKAI_DEV_3_TARGET_ORGANIZATIONRANK_SET.contains(org.OrganizationRank__c);
+this.shouldUpdateKouka      = KOUKA_TARGET_ORGANIZATION_SET.contains(           org.OrganizationRank__c);
+this.shouldUpdateMg         = MG_TARGET_ORGANIZATION_SET.contains(              org.OrganizationRank__c);
 ```
 
 ```
@@ -108,6 +102,9 @@ if ( a == b && c == d )         // avoid
 ```
 
 - **[MUST]** 三項演算子の条件句は丸括弧で囲む
+### インデント
+- **[MUST]** インデントはタブ文字を使用する。
+- **[MUST]** ブロック内の文は1レベルインデントする。
 ### 行
 - **[MUST]** 1行につき1宣言まで。
 - **[MUST]** 1行につき1文（statement）まで。
@@ -144,7 +141,7 @@ else if ( shokusei  ==  'CV'  ) {  employeementPattern  =  'CV';      }
 - **[MUST]** for文のセミコロンのあとに空白を入れる。
 
 ## SOQL
-<!-- **[MUST]** インラインSOQLを書く場合は、SELECTの前で改行し、インデントを **TODO** 個置く。-->
+<!-- TODO: - **[MUST]** インラインSOQLを書く場合は、SELECTの前で改行し、インデントを **TODO** 個置く。-->
 - **[MUST]** インラインSOQLの予約後は縦を揃え、予約後以外の句はインデントする。
 - **[MUST]** インラインSOQLの閉じカギカッコは予約後と同じインデントに揃える。
 - **[MUST]** インラインSOQLのSELECTする項目の記述は、1行につき1語までとする。
