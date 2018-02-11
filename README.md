@@ -6,8 +6,8 @@
 - [Aura_Template](aura_template.md)
 - [HTML](html_style.md)
 - [CSS](css_style.md)
-- [Visualforce]
-- [JavaScript]
+- Visualforce
+- [JavaScript](js_style.md)
 <!--
 - [Visualforce](visualforce.md)
 - [JavaScript](javascript.md)
@@ -27,3 +27,6 @@
 
 - __"MUST"__ 必須事項。開発者はmasterにマージするときに遵守していること。
 - __"SHOULD"__ 推奨事項。クリティカルではないが、従うことが推奨される。
+- __"ok"__ （サンプルコード）推奨される書き方。
+- __"avoid"__ （サンプルコード）避けるべき書き方。
+- __"ng"__ （サンプルコード）禁止される書き方。
