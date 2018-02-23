@@ -2,7 +2,8 @@
 
 ## 個人開発用
 
-- [Apex](apex.md)
+- [Apex_Style_Guide](apex_style.md)
+- [Apex_Naming_Guide](apex_naming.md)
 - [Aura_Template](aura_template.md)
 - [HTML](html_style.md)
 - [CSS](css_style.md)
@@ -16,7 +17,7 @@
 
 ## コードレビュー対策
 （スタイル、ロジック、命名規則でファイルを分ける）
-- [Apex_Style_Guide](apex_style.md)
+- [Apex_Style_Guide](rca_apex_style.md)
 - Apex_Logic_Guide <!-- [Apex_Logic_Guide](apex_logic.md) -->
 - Apex_Naming_Guide <!-- [Apex_Naming_Guide](apex_naming.md) -->
 - Visualforce_Style_Guide <!-- [Visualforce_Style_Guide](visualforce_style.md) -->
