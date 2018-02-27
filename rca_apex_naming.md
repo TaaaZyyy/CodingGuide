@@ -28,14 +28,14 @@
 - [SHOULD] 一般的でない略語は使用しない。
 - [SHOULD] 一般的な略語は積極的に使用する(省略可能な単語の項を参考)。
 - [SHOULD] 特殊な業務用語を覗いて英語を使用する。
-- **[MUST]** 頭字語や類語は単語として綴りの記法を適用する。
+- [SHOULD] 頭字語や類語は単語として綴りの記法を適用する。
 
 ```
 // ok
 XmlHttpRequest
 getCustomerId
 
-// ng
+// avoid
 XMLHTTPRequest
 getCustomerID
 ```
@@ -204,6 +204,7 @@ private void method001(Enumtest enumtest) {
 
 
 ## その他
+<!-- Salesforce Database Naming Guide と重複するので別ファイルに切り出す -->
 ### 省略可能な単語
 略語が一般的なものは略語を使用する。
 例
@@ -214,7 +215,7 @@ private void method001(Enumtest enumtest) {
 - avg (average)
 - mon (Monday)
 
-<!--
+
 ### 業務用語
 
 | 意味 | 使用単語 |
@@ -248,8 +249,6 @@ private void method001(Enumtest enumtest) {
 | 送出出向者 | sentSecondedEmployee |
 | 正式名称 | seishikiMeishou |
 | WCMシート | wcmSheet, wcm |
-DB設計ガイドを作成したら重複するので別ファイルに切り出す
--->
 
 ### 一般用語
 
