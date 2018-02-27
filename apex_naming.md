@@ -41,13 +41,29 @@ getCustomerID
 - **[MUST]** 名詞・動詞を名詞化した語を使用。
     - ただし
 - **[MUST]** アッパーキャメルケース。
-- (システム名_)接頭語_名詞 で命名する `S2_VP_MovieListController`
+- **[MUST]** (システムコード_)接頭語_名詞 で命名する `S2_VP_MovieListController`
+- **[MUST]** 33文字以内で命名する(システム上クラス名は40文字まで。テストクラス作成を考慮(ZT_XxxTest)。)
+    - トリガハンドラはトリガ名を使ってテストクラスを作成するため40文字まで。
 
 ### 接尾語
 <!-- - 抽象クラス: AbstractXxx -->
 <!-- - インターフェース: XxxInterface -->
-- ファクトリ: XxxFactory
-- テストクラス: XxxTest
+<!-- - ファクトリ: XxxFactory -->
+
+| 役割 | 接尾語 |
+|:---|:---|
+| 役割 | 接尾語 |
+| コントローラ | Ctrl |
+| 拡張コントローラ | ExtCtrl |
+| バッチ | Batch |
+| トリガ | Trigger |
+| トリガハンドラ | TriggerHandler (40文字を超える場合は、Handler) |
+| スケジューラ | Schedule |
+| テストクラス | Test |
+| ロジック | Logic |
+| DTO | Dto |
+| DAO | Dao |
+| 共通部品ロジック | Util |
 
 ### 接頭語
 - クラス単位でテストクラスを作成するときは元のクラスの接頭語を残してZT_をつける `ZT_BT_UserBelongUpdateBatch`
