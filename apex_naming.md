@@ -153,12 +153,13 @@ contains, exists
 
 
 ## 変数名
-- **[MUST]** 名詞(句)を使用する
 - **[MUST]** ローワーキャメルケース
 - **[MUST]** イテレータ( i, j, k )、例外( e )以外に一文字の変数名を使用しない。
-- **[MUST]** 一時的な変数であっても説明的な変数名(修飾語を使う)を使用する。
+- [SHOULD] 名詞(句)を使用する
+- [SHOULD] 一時的な変数であっても説明的な変数名(修飾語を使う)を使用する。
 - [SHOULD] スコープにあった長さの変数名を使用する(ローカル変数に長過ぎる変数名を使用すると可読性が落ちる)
-- [SHOULD] 汎用的な名前を避ける `tmp, retval // avoid`
+- [SHOULD] 汎用的な名前を避ける
+    - `tmp, retval // avoid`
 - **[MUST]** クラス名(Enumを含む)と同名の変数名は使用しない。
     - クラス変数・静的メソッドを使用するとコンパイルエラーになる
 
@@ -184,17 +185,17 @@ private void method001(Enumtest enumtest) {
 - 異常な: invalidXxx
 - 変更前: OriginalXxx
 - 現在の: CurrentXxx
-- 目的の: 名詞To動詞 `listToUpdate`
-    <!-- よく使用される updateList は動詞+目的語なのでガイドライン違反になる -->
+- 目的の: 名詞To動詞
+    - `listToUpdate`
+    <!-- よく使用される updateHogeList は動詞+目的語なのでガイドライン違反になる -->
 
 ### 接尾語
 例
 - 数: xxxChar、xxxNum、xxxQuantity
-- 条件: xxxCondition `searchCondition`
-    - xxxlengthは使用しない
+- 条件: xxxCondition
 
 ### 仮引数
-- pXxx (コンストラクタ・メソッドの中で同じ変数名を使用したい場合は仮引数にpをつける)
+- pXxx (コンストラクタ・メソッドの中で同じ変数名を使用したい場合は仮引数にp(引数(parameter)のp)をつける)
 
 
 ## 定数名
