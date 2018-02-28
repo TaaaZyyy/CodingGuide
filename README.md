@@ -1,31 +1,19 @@
 # CodingGuide
-
-## 個人開発用
-
+## Salesforce開発
 - [Apex_Style_Guide](apex_style.md)
 - [Apex_Naming_Guide](apex_naming.md)
-- [Aura_Template](aura_template.md)
+- Apex_Best_Practice
+- Aura<!-- [Aura](aura_template.md) -->
+- SLDS
+- Visualforce_Style_Guide <!-- [Visualforce_Style_Guide](visualforce_style.md) -->
+- Salesforce_Database_Naming_Guide <!-- [Salesforce_db_Naming_Guide](salesforce_database.md) -->
+
+## その他
 - [HTML](html_style.md)
 - [CSS](css_style.md)
-- Visualforce
 - [JavaScript](js_style.md)
-<!--
-- [Visualforce](visualforce.md)
-- [JavaScript](javascript.md)
-- [Salesforceデータベース](salesforcedatabase.md)
--->
-
-## コードレビュー対策
-（スタイル、ロジック、命名規則でファイルを分ける）
-- [Apex_Style_Guide](rca_apex_style.md)
-- Apex_Logic_Guide <!-- [Apex_Logic_Guide](apex_logic.md) -->
-- [Apex_Naming_Guide](rca_apex_naming.md)
-- Visualforce_Style_Guide <!-- [Visualforce_Style_Guide](visualforce_style.md) -->
-- Javascript_Style_Guide <!-- [Javascript_Style_Guide](Javascript_style.md) -->
-- Salesforce_Database_Naming_Guide <!-- [Salesforce_Database_Naming_Guide](salesforce_database.md) -->
 
 ## Keywords
-
 - __"MUST"__ 必須事項。開発者はmasterにマージするときに遵守していること。
 - __"SHOULD"__ 推奨事項。クリティカルではないが、従うことが推奨される。
 - __"ok"__ （サンプルコード）推奨される書き方。
