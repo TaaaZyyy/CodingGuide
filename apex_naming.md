@@ -17,18 +17,23 @@
 - その他
     - 省略可能な単語
 
-# Apex 命名規則
+# Apex 命名ガイド
 
 ## はじめに
-<!-- 命名規則を運用する目的を記述する -->
+ソースコードの可読性を向上させ、保守性・開発速度を向上させるための参考として、命名ガイドをここに提示する。
+良い命名が思い浮かばないときはそもそも設計に問題がある場合もあるので、設計の見直しも検討すること。
 
 ## 全般
-- [SHOULD] 説明的で意味・意図を表している命名を行う
+- [SHOULD] 説明的で意味・意図を表している命名を行う。
+- [SHOULD] 他の意味に取られるような命名をしない。
+    - 名前が「他の意味と間違われることはないだろうか？」と何度も自問自答する。
+- [SHOULD] 抽象的な名前、汎用的な名前は使用しない。具体的で意味が明確な名前を使用する。
 - [SHOULD] 長すぎず短すぎず、スコープに見合った長さで命名を行う。
 - [SHOULD] 一般的でない略語は使用しない。
 - [SHOULD] 一般的な略語は積極的に使用する(省略可能な単語の項を参考)。
 - [SHOULD] 特殊な業務用語を覗いて英語を使用する。
-- **[MUST]** 頭字語や類語は単語として綴りの記法を適用する。
+- **[MUST]** 頭字語や略語は単語として綴りの記法を適用する。
+    <!-- - 参考: [AOSP Java Code Style for Contributors](https://source.android.com/setup/code-style#treat-acronyms-as-words) -->
 
 ```
 // ok
@@ -44,7 +49,6 @@ getCustomerID
 - **[MUST]** アッパーキャメルケース。
     - インナークラス、Enum、カスタム例外もアッパーキャメルケースで命名する
 - [SHOULD] 名詞・動詞を名詞化した語を使用。
-    - ただしBoolean型は `isActive` などtrueが何を意味するのかひと目で分かる命名にする。
 - [SHOULD] (システムコード_)接頭語_名詞 で命名する
     - ex. `S2_VP_MovieListController`
 - [SHOULD] 33文字以内で命名する(システム上クラス名は40文字まで。テストクラス作成を考慮(ZT_XxxTest)。)
@@ -56,7 +60,7 @@ getCustomerID
 <!-- - ファクトリ: XxxFactory -->
 
 | 役割 | 接尾語 |
-|:---|:---|
+|:-|:-|
 | 役割 | 接尾語 |
 | コントローラ | Ctrl |
 | 拡張コントローラ | ExtCtrl |
@@ -75,7 +79,7 @@ getCustomerID
     - でないと通常のクラスとテストクラスの並び順が変わり、検索性が悪くなる
 
 | 役割 | 接尾語 |
-|:---|:---|
+|:-|:-|
 | Visualforceコントローラ | VP_ |
 | Componentコントローラ | VC_ |
 | 拡張コントローラ | VX_ |
@@ -93,10 +97,15 @@ getCustomerID
 ## メソッド名
 - **[MUST]** ローワーキャメルケース
 - [SHOULD] 動詞(句)を使用。
+- [SHOULD] 引数、戻り値との関係が明確な名前をつける。
+    - うまく命名できない場合は設計に問題がよくあるので設計を見直してみる。
+- [SHOULD] publicメソッドの場合、クラス名・インスタンス名とメソッド名で意味が重複しないように命名する。
 <!-- - [SHOULD] publicメソッドはオブジェクト名と組み合わせて使用したときに冗長にならないように命名する -->
 
+<!--
 ### 修飾語
-<!-- - yyyを無視してxxxする: xxxIgnoreYyy -->
+- yyyを無視してxxxする: xxxIgnoreYyy
+- -->
 
 ### データベースアクセス
 以下の用語を使用する。
@@ -112,9 +121,9 @@ getCustomerID
 ### データの取得
 - クエリ結果の取得: queryXxx
 - インスタンス(他者)の取得: createXxx, newXxx
-    - 組み込みクラス（コレクションなど）のインスタンス
-    - SObjectのインスタンス
-    - Apexクラスのインスタンス
+    - 組み込みクラス（コレクションなど）のインスタンスの取得
+    - SObjectのインスタンスの取得
+    - Apexクラスのインスタンスの取得
 - インスタンス(自身)の取得: newInstance
     - cf. `Date.newInstance(2017,1,1)`
 - プロパティの取得: getXxx
@@ -123,7 +132,11 @@ getCustomerID
 
 ### データの設定・操作
 - プロパティの設定: setXxx
-- 取り除く: removeXxx
+- 既にあるものに別の何かを追加する: addXxx
+- 既にあるものに付け加える: appendXxx
+- 一部を取り除く: removeXxx
+- 空にする: clearXxx
+- 初期状態に戻す: resetXxx
 - インスタンスの変換 (コンバータメソッド): toXxx
 
 #### データの検証
@@ -136,9 +149,12 @@ getCustomerID
 
 ### 非推奨
 言葉の示す範囲が広く、命名に使用するのは不適切
-- 除外する: filter
-- 切り抜く: clip
-- 状態を見る: check、test、judge
+- 除外する: filterXxx
+    - 戻り値が除外されたものなのか、除外されて残ったものなのかが明確でない。
+    - 代案: excludeXxx、selectXxx
+- 状態を見る: checkXxx、testXxx、judgeXxx
+    - 処理の内容がわからない。戻り値が何を意味するか不明。
+    - 代案: validateXxx、ensureXxx
 <!--
 ※未整理
 create, build, make, generate
@@ -157,6 +173,21 @@ contains, exists
 - **[MUST]** ローワーキャメルケース
 - **[MUST]** イテレータ( i, j, k )、例外( e )以外に一文字の変数名を使用しない。
 - [SHOULD] 名詞(句)を使用する
+    - ただしBoolean型は `isActive` などtrueが何を意味するのかひと目で分かる命名にする。
+    - 迷ったら github でソース検索してHitが多い方を使用するとよい。
+
+| 形式 | 意味 | 例 |
+|:-|:-|:-|
+| is + 形容詞 | 状態 | isEmpty |
+| is + 名詞 + 過去分詞 | 状態 | isCellSelected |
+| is + ~able | 可能 | isUpdatable |
+| can + 動詞 | 可能 | canRead |
+| has + 過去分詞 | 完了 | hasChanged |
+| ~Exists | 存在 | userExists |
+| has + 名詞 | 所有 | hasNext |
+
+
+
 - [SHOULD] 一時的な変数であっても説明的な変数名(修飾語を使う)を使用する。
 - [SHOULD] スコープにあった長さの変数名を使用する(ローカル変数に長過ぎる変数名を使用すると可読性が落ちる)
 - [SHOULD] 汎用的な名前を避ける
@@ -206,7 +237,6 @@ private void method001(Enumtest enumtest) {
 ## その他
 ### 省略可能な単語
 略語が一般的なものは略語を使用する。
-例
 - eval (evaluate, evaluation)
 - doc (document)
 - str (string)
@@ -218,7 +248,7 @@ private void method001(Enumtest enumtest) {
 ### 業務用語
 
 | 意味 | 使用単語 |
-|:---|:---|
+|:-|:-|
 | 兼務 | additionalPost |
 | 職制 | shokusei |
 | 職務 | shokumu |
@@ -254,8 +284,8 @@ DB設計ガイドを作成したら重複するので別ファイルに切り出
 ### 一般用語
 
 | 意味 | 使用単語 |
-|:---|:---|
+|:-|:-|
 | 電話番号 | Phone |
 | 携帯電話番号 | Mobile |
 | メールアドレス | Email |
-| ヨミガナ・カナ | Pronunciation |
+| ヨミガナ・カナ | Kana |
