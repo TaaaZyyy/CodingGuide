@@ -243,6 +243,8 @@ private void method001(Enumtest enumtest) {
 - num (number)
 - avg (average)
 - mon (Monday)
+- img (image)
+- msg (message)
 
 <!--
 ### 業務用語
