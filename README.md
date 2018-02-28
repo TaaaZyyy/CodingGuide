@@ -1,14 +1,15 @@
 # CodingGuide
-## Salesforce開発
+## Guides
+### Salesforce開発
 - [Apex_Style_Guide](apex_style.md)
 - [Apex_Naming_Guide](apex_naming.md)
-- Apex_Best_Practice
+- Apex_BestPractice
 - Aura<!-- [Aura](aura_template.md) -->
 - SLDS
 - Visualforce_Style_Guide <!-- [Visualforce_Style_Guide](visualforce_style.md) -->
 - Salesforce_Database_Naming_Guide <!-- [Salesforce_db_Naming_Guide](salesforce_database.md) -->
 
-## その他
+### その他
 - [HTML](html_style.md)
 - [CSS](css_style.md)
 - [JavaScript](js_style.md)
